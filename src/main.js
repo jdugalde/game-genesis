@@ -2,6 +2,7 @@ let order = [];
 let clickedOrder = []
 let score = 0;
 
+// sequência das cores
 // 0 = green
 // 1 = red
 // 2 = yellow
@@ -30,10 +31,13 @@ let lightColor = (element, number) => {
     number = number * 500
     setTimeout(() => {
         element.classList.add('selected');
-    }, number - 250);
-    setTimeout(() => {
+        
+        setTimeout(() => {
         element.classList.remove('selected')
-    })
+            
+    }, 250);
+    
+    }, number - 250)
 }
 
 // checa se os botões clicados são os mesmos da ordem gerada no jogo

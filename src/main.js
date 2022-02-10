@@ -40,7 +40,7 @@ let lightColor = (element, number) => {
     }, number - 250)
 }
 
-// checa se os botões clicados são os mesmos da ordem gerada no jogo
+// verifica se os botões clicados são os mesmos da ordem gerada no jogo
 let checkOrder = () => {
     for(let i in clickedOrder) {
         if(clickedOrder[i] != order[i]) {
@@ -50,7 +50,8 @@ let checkOrder = () => {
     }
     if(clickedOrder.length == order.length) {
         alert(`Pontuação: ${score}\n Você acertou! Iniciando próximo nível!`);
-        nextLevel();
+        
+        setTimeout(nextLevel(), 1000);
     }
 }
 
@@ -62,7 +63,7 @@ let click = (color) => {
     setTimeout(() => {
         createColorElement(color).classList.remove('selected')
         checkOrder();
-    },250);
+    }, 50);
 }
 
 // função que retorna a cor
@@ -81,7 +82,7 @@ let createColorElement = (color) => {
 // função para próximo nível do jogo
 let nextLevel = () => {
     score++;
-    shuffleOrder();
+    setTimeout(shuffleOrder(), 1000);
 }
 
 // função para game over
